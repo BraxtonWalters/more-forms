@@ -69,7 +69,10 @@ const Form = ( ) => {
                 <input className='form-control' type="text" value={confirmPassword} onChange={ (e) => handleValidation(e, "confirmPassword")} />
                 {confirmPasswordError ? <p>{confirmPasswordError}</p> : ""}
             </div>
-            <input type="submit" />
+            {
+                firstNameError || lastNameError || emailError || passwordError || confirmPasswordError ? 
+                <input disabled={true} type="submit" /> : <input type="submit" />
+            }
         </form>
     );
 }
